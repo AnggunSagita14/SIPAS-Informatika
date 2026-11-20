@@ -37,8 +37,6 @@ SIPAS Informatika merupakan sistem informasi berbasis web yang dikembangkan untu
 
 ## Progres Pengerjaan
 
-## Progres Pengerjaan
-
 1. 13/11/2026 – Tahap 1
    Melakukan identifikasi kebutuhan Sistem Informasi Pengajuan dan Pengelolaan Surat Akademik Program Studi Informatika Universitas Tanjungpura, meliputi proses pengajuan, verifikasi, penerbitan, dan pemantauan surat akademik.
 
