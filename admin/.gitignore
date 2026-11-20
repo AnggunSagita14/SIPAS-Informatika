@@ -1,0 +1,12 @@
+
+# Konfigurasi database dan rahasia
+config/database.php
+.env
+.env.*
+
+# Dependensi
+/vendor/
+/node_modules/
+
+# File log
+*.log

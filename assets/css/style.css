@@ -1,0 +1,390 @@
+
+/* =====================================
+   SIPAS INFORMATIKA - LOGIN PAGE
+   Ocean Blue Academic Design
+===================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #EDF3FA;
+    color: #243B53;
+}
+
+.login-page {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 35px;
+    background:
+        radial-gradient(circle at 10% 15%, #D8EAF9 0, transparent 30%),
+        radial-gradient(circle at 90% 85%, #D5E7F7 0, transparent 30%),
+        #EDF3FA;
+}
+
+/* Container utama */
+
+.login-container {
+    width: 100%;
+    max-width: 1050px;
+    min-height: 590px;
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    background: #FFFFFF;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 18px 55px rgba(18, 52, 90, 0.13);
+}
+
+/* =====================================
+   BAGIAN KIRI
+===================================== */
+
+.login-banner {
+    position: relative;
+    background-image:
+        linear-gradient(
+            180deg,
+            rgba(10, 43, 79, 0.20),
+            rgba(10, 43, 79, 0.94)
+        ),
+        url("../gedung-informatika.jpg");
+
+    background-size: cover;
+    background-position: center;
+    min-height: 590px;
+    color: white;
+}
+
+.banner-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        135deg,
+        rgba(17, 76, 133, 0.22),
+        transparent 65%
+    );
+}
+
+.banner-content {
+    position: relative;
+    z-index: 1;
+    height: 100%;
+    min-height: 590px;
+    padding: 38px 42px;
+    display: flex;
+    flex-direction: column;
+}
+
+.brand-logo {
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.90);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.banner-text {
+    margin-top: auto;
+    margin-bottom: 45px;
+}
+
+.banner-subtitle {
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    color: #B9DDF9;
+    margin-bottom: 13px;
+}
+
+.banner-text h1 {
+    font-size: 37px;
+    line-height: 1.2;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.banner-line {
+    width: 55px;
+    height: 4px;
+    background: #45C0E0;
+    border-radius: 5px;
+    margin: 21px 0;
+}
+
+.banner-description {
+    max-width: 350px;
+    font-size: 13px;
+    line-height: 1.9;
+    color: #E1EDF8;
+}
+
+.banner-footer {
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: #C8E3F8;
+}
+
+/* =====================================
+   BAGIAN KANAN
+===================================== */
+
+.login-form-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 55px 48px;
+    background: #FFFFFF;
+}
+
+.form-wrapper {
+    width: 100%;
+    max-width: 360px;
+}
+
+/* Heading */
+
+.form-heading {
+    text-align: center;
+    margin-bottom: 38px;
+}
+
+.form-logo {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+}
+
+.form-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.form-heading h2 {
+    font-size: 25px;
+    color: #123B70;
+    font-weight: 700;
+    margin-bottom: 9px;
+}
+
+.form-heading p {
+    font-size: 12px;
+    color: #8190A3;
+    line-height: 1.7;
+}
+
+/* Form */
+
+.form-group {
+    margin-bottom: 21px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 12px;
+    font-weight: bold;
+    color: #344B65;
+    margin-bottom: 9px;
+}
+
+.form-group input {
+    width: 100%;
+    height: 47px;
+    padding: 0 15px;
+    border: 1px solid #DCE5EF;
+    border-radius: 8px;
+    background: #FBFCFE;
+    outline: none;
+    font-size: 12px;
+    color: #243B53;
+    transition: 0.2s ease;
+}
+
+.form-group input::placeholder {
+    color: #A2ADBA;
+}
+
+.form-group input:focus {
+    border-color: #287FC1;
+    background: #FFFFFF;
+    box-shadow: 0 0 0 3px rgba(40, 127, 193, 0.10);
+}
+
+/* Tombol Login */
+
+.btn-login {
+    width: 100%;
+    height: 48px;
+    margin-top: 8px;
+    padding: 0 18px;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(100deg, #1D5FAF, #287FC1);
+    color: #FFFFFF;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    transition: 0.2s ease;
+}
+
+.btn-login span {
+    font-size: 18px;
+}
+
+.btn-login:hover {
+    background: linear-gradient(100deg, #123B70, #1D5FAF);
+    box-shadow: 0 6px 15px rgba(29, 95, 175, 0.20);
+    transform: translateY(-1px);
+}
+
+/* Pesan Error */
+
+.error-message {
+    padding: 12px 14px;
+    background: #FEF2F2;
+    border: 1px solid #FECACA;
+    color: #B91C1C;
+    border-radius: 8px;
+    font-size: 12px;
+    margin-bottom: 20px;
+}
+
+/* Informasi */
+
+.login-divider {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 29px 0 22px;
+}
+
+.login-divider::before,
+.login-divider::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: #E5EAF0;
+}
+
+.login-divider span {
+    font-size: 9px;
+    font-weight: bold;
+    color: #A0ACB9;
+    letter-spacing: 1px;
+    white-space: nowrap;
+}
+
+.login-information {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 14px;
+    background: #F1F7FD;
+    border-radius: 9px;
+}
+
+.information-icon {
+    flex-shrink: 0;
+    width: 19px;
+    height: 19px;
+    border-radius: 50%;
+    background: #D6E9FA;
+    color: #1D5FAF;
+    font-size: 12px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-information p {
+    font-size: 11px;
+    color: #61758D;
+    line-height: 1.7;
+}
+
+/* Animasi Typing Selamat Datang */
+.form-heading h2 {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 0;
+    border-right: 3px solid #287FC1;
+    animation:
+        typing 2.5s steps(15, end) forwards,
+        blink 0.7s step-end infinite;
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 15ch;
+    }
+}
+
+@keyframes blink {
+    from, to {
+        border-color: transparent;
+    }
+
+    50% {
+        border-color: #287FC1;
+    }
+}
+/* Footer Login */
+.login-footer {
+    margin-top: 25px;
+    text-align: center;
+    color: #A0ACB9;
+    font-size: 10px;
+    font-weight: normal;
+    line-height: 1.8;
+}
+
+.form-logo {
+    width: 75px !important;
+    height: 75px !important;
+    min-width: 75px !important;
+    min-height: 75px !important;
+    max-width: 75px !important;
+    max-height: 75px !important;
+    margin: 0 auto 15px !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.form-logo img {
+    width: 75px !important;
+    height: 75px !important;
+    max-width: 75px !important;
+    max-height: 75px !important;
+    object-fit: contain !important;
+}
