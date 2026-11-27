@@ -49,6 +49,18 @@ SIPAS Informatika merupakan sistem informasi berbasis web yang dikembangkan untu
 4. 20/11/2026 – Tahap 1
    Mengidentifikasi kebutuhan data dan fungsional sistem berdasarkan hak akses Admin dan Mahasiswa, meliputi pengelolaan data mahasiswa, jenis surat, pencatatan pengajuan, verifikasi, penerbitan surat, serta pemantauan status pengajuan melalui fitur Jejak Surat menggunakan kode surat dan kode akses.
 
+5. 21/11/2026 – Tahap 2
+   Mengembangkan fitur registrasi dan login Admin serta menyesuaikan mekanisme autentikasi berdasarkan kebutuhan sistem. Admin memiliki akses untuk mengelola sistem, sedangkan mahasiswa tidak perlu membuat akun atau login untuk mengajukan dan memantau surat akademik.
+
+6. 24/11/2026 – Tahap 2
+   Mengembangkan halaman pengelolaan data pengajuan surat akademik pada sisi Admin, meliputi penampilan data pengajuan, informasi mahasiswa, jenis surat, tanggal pengajuan, dan status pengajuan.
+
+7. 26/11/2026 – Tahap 2
+   Mengembangkan fitur Jejak Surat agar mahasiswa dapat memantau status pengajuan menggunakan kode surat dan kode akses tanpa harus login. Melakukan penyesuaian proses pemeriksaan kode akses untuk menjaga keamanan informasi pengajuan.
+
+8. 27/11/2026 – Tahap 2
+   Melakukan penyesuaian pengelolaan akun dan hak akses pada database. Memperbaiki tampilan Data Mahasiswa agar hanya menampilkan data mahasiswa dan tidak memasukkan akun Administrator ke dalam daftar mahasiswa.
+
 ## Instalasi
 1. Clone repository ini.
 2. Simpan folder proyek di direktori `www` Laragon.
