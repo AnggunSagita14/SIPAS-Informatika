@@ -4,7 +4,7 @@ require_once "config/database.php";
 
 $error = "";
 
-// Admin sudah terdaftar? Tutup halaman registrasi
+// Periksa apakah akun Admin sudah terdaftar
 $cek_admin = $conn->prepare("
     SELECT id_user
     FROM users
@@ -15,56 +15,61 @@ $cek_admin = $conn->prepare("
 ");
 $cek_admin->execute();
 
-if ($cek_admin->fetch(PDO::FETCH_ASSOC)) {
-    header("Location: login.php");
-    exit;
-}
+$admin_terdaftar = (bool) $cek_admin->fetch(PDO::FETCH_ASSOC);
 
+// Halaman tetap ditampilkan meskipun Admin sudah terdaftar
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $nama = trim($_POST["nama_lengkap"] ?? "");
-    $email = trim($_POST["email"] ?? "");
-    $password = $_POST["password"] ?? "";
-    $konfirmasi = $_POST["konfirmasi_password"] ?? "";
 
-    if ($nama === "" || $email === "" || $password === "") {
-        $error = "Semua kolom wajib diisi.";
-    } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $error = "Format email tidak valid.";
-    } elseif (strlen($password) < 8) {
-        $error = "Password minimal 8 karakter.";
-    } elseif ($password !== $konfirmasi) {
-        $error = "Konfirmasi password tidak sesuai.";
+    if ($admin_terdaftar) {
+        $error = "Akun Admin sudah terdaftar. Registrasi hanya digunakan untuk setup awal.";
+
     } else {
-        try {
-            $password_hash = password_hash(
-                $password,
-                PASSWORD_DEFAULT
-            );
+        $nama = trim($_POST["nama_lengkap"] ?? "");
+        $email = trim($_POST["email"] ?? "");
+        $password = $_POST["password"] ?? "";
+        $konfirmasi = $_POST["konfirmasi_password"] ?? "";
 
-            $stmt = $conn->prepare("
-                UPDATE users
-                SET nama_lengkap = :nama,
-                    email = :email,
-                    password = :password,
-                    status_akun = 'aktif'
-                WHERE id_user = 1
-                  AND id_role = 1
-            ");
+        if ($nama === "" || $email === "" || $password === "") {
+            $error = "Semua kolom wajib diisi.";
+        } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            $error = "Format email tidak valid.";
+        } elseif (strlen($password) < 8) {
+            $error = "Password minimal 8 karakter.";
+        } elseif ($password !== $konfirmasi) {
+            $error = "Konfirmasi password tidak sesuai.";
+        } else {
+            try {
+                $password_hash = password_hash(
+                    $password,
+                    PASSWORD_DEFAULT
+                );
 
-            $stmt->execute([
-                "nama" => $nama,
-                "email" => $email,
-                "password" => $password_hash
-            ]);
+                $stmt = $conn->prepare("
+                    UPDATE users
+                    SET nama_lengkap = :nama,
+                        email = :email,
+                        password = :password,
+                        status_akun = 'aktif'
+                    WHERE id_user = 1
+                      AND id_role = 1
+                ");
 
-            if ($stmt->rowCount() === 1) {
-                header("Location: login.php?registrasi=berhasil");
-                exit;
+                $stmt->execute([
+                    "nama" => $nama,
+                    "email" => $email,
+                    "password" => $password_hash
+                ]);
+
+                if ($stmt->rowCount() === 1) {
+                    header("Location: login.php?registrasi=berhasil");
+                    exit;
+                }
+
+                $error = "Akun Admin tidak ditemukan atau sudah terdaftar.";
+
+            } catch (PDOException $e) {
+                $error = "Email sudah digunakan atau registrasi gagal.";
             }
-
-            $error = "Akun Admin tidak ditemukan atau sudah terdaftar.";
-        } catch (PDOException $e) {
-            $error = "Email sudah digunakan atau registrasi gagal.";
         }
     }
 }
