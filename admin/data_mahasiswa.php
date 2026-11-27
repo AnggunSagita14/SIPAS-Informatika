@@ -12,6 +12,7 @@ if (
 
 require_once "../config/database.php";
 
+
 $query = $conn->query("
     SELECT
         u.nim,
@@ -21,7 +22,8 @@ $query = $conn->query("
     FROM users u
     LEFT JOIN applications a
         ON u.id_user = a.id_user
-    WHERE u.id_role = 1
+    WHERE u.nim IS NOT NULL
+  AND TRIM(u.nim) <> ''
     GROUP BY
         u.id_user,
         u.nim,

@@ -4,3 +4,5 @@ config/database.php
 /vendor/
 /node_modules/
 *.log
+
+db_sipas_informatika.sql
